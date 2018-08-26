@@ -8,18 +8,7 @@ _BSOAIFlares_shoot = false;
 
 _unit addWeapon "rhs_weap_rsp30_red"; _unit addHandgunItem "rhs_mag_rsp30_red";
 
-//if (isNil "BSOAIFlare_units") then { BSOAIFlare_units = []; }
-//BSOAIFlare_units = BSOAIFlare_units + [_unit];
-//waitUntil {behaviour _unit == "COMBAT"};
 
-//waitUntil {_unit call BIS_fnc_enemyDetected};
-
-
-
-//while {(_unit call BIS_fnc_enemyDetected) && (BSO_AIflares = false)) do {
-
-//waitUntil {_unit call BIS_fnc_enemyDetected};
-//hint "i detect";
 
 
 	waitUntil {(_unit findNearestEnemy position _unit) distance _unit < 300};
@@ -40,7 +29,7 @@ _unit addWeapon "rhs_weap_rsp30_red"; _unit addHandgunItem "rhs_mag_rsp30_red";
 
 while {_BSOAIFlares_shoot AND alive _unit} do {
 
-	if ((_unit findNearestEnemy position _unit) distance _unit < 300) then {
+	if ((_unit findNearestEnemy position _unit) distance _unit < 300 AND (handgunWeapon _unit == "rhs_weap_rsp30_red")) then {
 	
 		hint "Valid flare target";
 		_unit setVariable ["BSO_AIFlares", true];
