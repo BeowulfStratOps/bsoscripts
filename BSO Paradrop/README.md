@@ -16,12 +16,13 @@ If you wish to add a separate definition for a vehicle so the parachute is attac
 
 
 // Below is an example of how we can paradrop a specific object
+
 	["dz_1", myTank] spawn BSO_fnc_parachute;
 
 
 // Below is an example of what could be put in customer_scripts.sqf to wait until GAME ON, then all players are dropped at the "dz_1" marker
 
-if (hasInterface) then {
-	[] spawn {waitUntil {trigger_BSOstart};
-	["dz_1", player] spawn BSO_fnc_parachute;
- } 
+	if (hasInterface) then {
+		[] spawn {waitUntil {trigger_BSOstart};
+		["dz_1", player] spawn BSO_fnc_parachute;
+ 	} 
