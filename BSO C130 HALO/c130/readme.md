@@ -1,10 +1,13 @@
 # C130 HALO Prop
 
 These scripts allow for the creation of a static C130 prop that players can be moved to for more "immersive" starts to missions with a HALO insertion.
+
+**IMPORTANT NOTE: Due to some odd ArmA and Zade BackpackOnChest interactions when players land they will need to either equip a grenade with the ACE Advanced grenade throw key bind, or drop their normal backpack and pick it back up for any throwables**
+
 It is made up of 4 functions, how you call these is up to you. I've provided the most basic examples to illustrate what each part does.
 To include this in your mission you will need to copy the c130 folder into your mission, or include the scripts elsewhere in your mission and adjust how they are called.
 
-##c130_init.sqf
+**c130_init.sqf**
 This function sets up a C130 prop, a dummy live one for sounds, and a red light.
 Can be called globally but will only run on the server, best just running on the server to begin with.
 
@@ -25,7 +28,7 @@ _logic getVariable "c130_live";
 _logic getVariable "c130_crew";
 `
 
-##c130_deploy.sqf
+**c130_deploy.sqf**
 This function moves specified units into the C130, and if specified puts their backpacks on their chest and adds a parachute.
 Can be called globally but will only run on the server, best just running on the server to begin with.
 
@@ -39,7 +42,7 @@ _applyParachute <bool, optional>: if true players will have backpacks put on the
 
 This does not account for units already in a C130, avoid adding units to the same c130 twice.
 
-##c130_move.sqf
+**c130_move.sqf**
 This function moves the c130 prop to a new location. Can also be used to adjust the altitude, and direction of the prop
 Can be called globally but will only run on the server, best just running on the server to begin with.
 
@@ -52,7 +55,7 @@ _newPos <array>: new position in format PositionAGL or Position2D, in which case
 _newAlt <number, optional>: Optional, if not used the same altitude will be used
 _newDir <number, optional>:Optional, if not used the same direction will be used
 
-##c130_cleanup.sqf
+**c130_cleanup.sqf
 This function removes the prop and other components that have been set up on a given object through c130_init.sqf
 
 ```sqf
